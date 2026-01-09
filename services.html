@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | MSSK EXIM</title>
+    <meta name="description" content="Explore MSSK EXIM's comprehensive services: Technology, Business Consultancy, Healthcare, Logistics, Education, and more for global business growth.">
+    <meta name="keywords" content="IT Services, Business Consultancy, Healthcare Services, Logistics, Education Training, HR Recruitment, MSSK EXIM Services">
+    <link rel="icon" href="Gemini_Generated_Image_x82uqtx82uqtx82u (1).png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Services Page Specific Styles */
+        .services-page {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .services-header h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #12192A, #ff9800, #12192A);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            animation: gradientText 3s linear infinite;
+        }
+        
+        .services-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Staggered Animation Delays */
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(7) { animation-delay: 0.7s; }
+        .service-card:nth-child(8) { animation-delay: 0.8s; }
+        .service-card:nth-child(9) { animation-delay: 0.9s; }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-top-color: #ff9800;
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .service-content {
+            padding: 35px;
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: #e8f4fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover .icon-wrapper {
+            background: #ff9800;
+            transform: rotateY(180deg);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+        
+        .icon-wrapper i {
+            font-size: 28px;
+            color: #3498db;
+            transition: color 0.3s ease;
+        }
+        
+        .service-card:hover .icon-wrapper i {
+            color: #ffffff;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .service-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .service-items li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-bottom: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .service-items li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-items li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #2ecc71;
+            margin-right: 12px;
+            margin-top: 3px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-items li {
+            transform: translateX(10px);
+            color: #333;
+        }
+
+        .service-card:hover .service-items li::before {
+            transform: scale(1.2);
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .services-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: #12192A; border-bottom: 1px solid #fff;">
+            <div class="header-brand">
+                <h2 style="margin: 0; color: #fff; font-weight: 700;">WORLD-CLASS IMPORT EXPORT SERVICE</h2>
+            </div>
+            <div class="header-logo" style="text-align: center;">
+                <img src="Gemini_Generated_Image_x82uqtx82uqtx82u (1).png" alt="Logo" style="height: 60px;">
+                <div style="color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.5px;">Continental Gap Bridging</div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo">MSSK EXIM</a>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home (Import Export)</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="import.html">Product</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="iso-certification.html">ISO Services</a></li>
+                <li><a href="exim-setup.html">EXIM Setup</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="services-page">
+        <div class="services-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive solutions tailored to elevate your business across industries.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Technology & Digital Services -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg" alt="Technology Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Technology & Digital</h3>
+                    <ul class="service-items">
+                        <li>Information Technology (IT) Services</li>
+                        <li>Business Process Outsourcing (BPO)</li>
+                        <li>E-commerce & Digital Marketing</li>
+                        <li>Cybersecurity Services</li>
+                        <li>Blockchain & Cryptocurrency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Business & Consultancy -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Business Consultancy">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-briefcase"></i></div>
+                    <h3>Business & Consultancy</h3>
+                    <ul class="service-items">
+                        <li>Financial & Fintech Services</li>
+                        <li>Legal & Consultancy Services</li>
+                        <li>HR & Recruitment Services</li>
+                        <li>Energy & Environmental Consultancy</li>
+                        <li>Architectural & Urban Planning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Creative & Media Services -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg" alt="Creative Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Creative & Media</h3>
+                    <ul class="service-items">
+                        <li>Animation & Multimedia Services</li>
+                        <li>Fashion Design & Textile Consultancy</li>
+                        <li>Cultural & Entertainment Services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Healthcare & Wellness -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg" alt="Healthcare Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Healthcare & Wellness</h3>
+                    <ul class="service-items">
+                        <li>Healthcare Services</li>
+                        <li>Yoga & Wellness Services</li>
+                        <li>Ayurveda & Traditional Medicine</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education & Training -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg" alt="Education Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Education & Training</h3>
+                    <ul class="service-items">
+                        <li>Education & E-learning Services</li>
+                        <li>Culinary & Cooking Classes</li>
+                        <li>Translation & Language Services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Industry & Logistics -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg" alt="Logistics Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-truck-loading"></i></div>
+                    <h3>Industry & Logistics</h3>
+                    <ul class="service-items">
+                        <li>Logistics & Supply Chain Management</li>
+                        <li>Tourism & Hospitality Services</li>
+                        <li>Agriculture & Food Technology</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Others -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg" alt="Other Services">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-star"></i></div>
+                    <h3>Others</h3>
+                    <ul class="service-items">
+                        <li>Astrology & Numerology Services</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Educational Service -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg" alt="Educational Service">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Educational Service</h3>
+                    <ul class="service-items">
+                        <li>Educational Consultancy</li>
+                        <li>Student Admission Services</li>
+                        <li>Career Counseling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HR and Recruitment Service -->
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="HR and Recruitment Service">
+                </div>
+                <div class="service-content">
+                    <div class="icon-wrapper"><i class="fas fa-user-tie"></i></div>
+                    <h3>HR and Recruitment Service</h3>
+                    <ul class="service-items">
+                        <li>Manpower Recruitment</li>
+                        <li>HR Consultancy</li>
+                        <li>Staffing Solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MSSK EXIM</h3>
+                <p>Global Trading Simplified. Quality, Trust, and Service You Can Rely On. Driven by passion, powered by expertise — we bring the best products to global markets. Exceeding expectations with timely delivery, exceptional customer support, and sustainable growth.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home (Import Export)</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="import.html">Product</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="iso-certification.html">ISO Services</a></li>
+                    <li><a href="exim-setup.html">EXIM Setup</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📍 <strong>Head Office:</strong><br>Donaj, Mangalwedha, Solapur, Maharashtra 413319</p>
+                <p>🏢 <strong>Branch Office:</strong><br>Pune, Maharashtra</p>
+                <p>📞 <strong>Phone:</strong> +91 8668637029</p>
+                <p>📧 <strong>Email:</strong> Enqiry@msskexim.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MSSK EXIM. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
